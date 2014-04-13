@@ -42,7 +42,7 @@
 
   function initQuokka() {
     console.log('Launching Quokka!');
-    $("body").append($.parseHTML('<div id="quokka"></div>'))
+    $("body").append($.parseHTML('<div id="quokka"></div>'));
     initDialog();
   }
 
@@ -50,11 +50,14 @@
     $("#quokka").append('<%= compress_erb(erb :dialog) %>');
     $("#quokka_dialog").dialog({
       appendTo: $("#quokka"),
-      autoOpen: true,
+      autoOpen: false,
     });
+    showQuokka();
   }
 
   function showQuokka() {
     $("#quokka_dialog").dialog("open");
+    $("#quokka_dialog").dialog("option", "position", { my: "right top", at: "right top", of: "body" });
+    console.log($("#quokka_dialog"));
   }
 })();
