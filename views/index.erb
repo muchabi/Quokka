@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>Quokka</title>
+</head>
+
+<body>
+
+<h1>Bookmarklets to save</h1>
+
+<p>Drag the links to your bookmarks bar</p>
+
+<div>
+  <a href="javascript:(function() {
+    var script=document.createElement('script');
+    script.type='text/javascript';
+    script.src='http://localhost:3030/quokka';
+    document.body.appendChild(script);
+  })();">Local Quokka</a>
+</div>
+
+</body>
