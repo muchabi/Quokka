@@ -1,0 +1,13 @@
+/* 
+  This file styles the dialog as it appears on the page
+  Namespace everything so we don't affect the original page
+  Content styling goes into quokka.css
+*/
+
+#quokka #quokka_dialog {
+  padding: 0;
+}
+
+#quokka #quokka_frame {
+  height: 20rem;
+}

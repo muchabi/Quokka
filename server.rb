@@ -9,7 +9,11 @@ end
 
 get '/quokka' do
   content_type :js
-  erb :"quokka.js"
+  erb :bookmarklet
+end
+
+get '/d/:name' do
+  erb :"d_#{params[:name]}", layout: :dialog_layout
 end
 
 helpers do
