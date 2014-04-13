@@ -1,5 +1,5 @@
-Quokka
-======
+TechConnect
+===========
 
 We observed that while using their computers, elderly people tended to only use a few features that they were especially familiar with. In subsequent interviews, these older users revealed a concern regarding "breaking" the computer and not knowing how to fix the problem. When problems do arise, a common response is to ask a younger family member or a nearby college student for assistance. If the person providing help is not in the same physical location, the elderly user often either struggles to communicate the problem over telephone (which is not efficient), or has to wait until the problem can be addressed in person (which is not timely).
 

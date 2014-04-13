@@ -42,7 +42,7 @@
 
   function initQuokka() {
     console.log('Launching Quokka!');
-
+    
     var styles = document.createElement('link');
     styles.rel = 'stylesheet';
     styles.type = 'text/css';
@@ -67,4 +67,7 @@
     $("#quokka_dialog").dialog("option", "position", { my: "right top", at: "right top", of: "body" });
   }
 
+  // function setQuokkaContent(erb) {
+  //   $("#quokka_content").html('<%= compress_erb(erb :someScreen %>');
+  // }
 })();
