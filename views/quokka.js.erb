@@ -42,6 +42,13 @@
 
   function initQuokka() {
     console.log('Launching Quokka!');
+
+    var styles = document.createElement('link');
+    styles.rel = 'stylesheet';
+    styles.type = 'text/css';
+    styles.href = '<%= request.base_url %>/css/quokka.css';
+    document.body.appendChild(styles);
+
     $("body").append($.parseHTML('<div id="quokka"></div>'));
     initDialog();
   }
@@ -58,6 +65,6 @@
   function showQuokka() {
     $("#quokka_dialog").dialog("open");
     $("#quokka_dialog").dialog("option", "position", { my: "right top", at: "right top", of: "body" });
-    console.log($("#quokka_dialog"));
   }
+
 })();
