@@ -9,7 +9,7 @@ end
 
 get '/quokka' do
   content_type :js
-  erb :bookmarklet
+  erb :"bookmarklet.js"
 end
 
 get '/d/:name' do
