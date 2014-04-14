@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 
 set :port, 3030
+set :protection, :except => :frame_options
 
 get '/' do
   erb :index
