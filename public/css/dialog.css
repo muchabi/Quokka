@@ -7,6 +7,10 @@
   Content styling goes into quokka.css, not here
 */
 
+#quokka .ui-front {
+  z-index: 2000000000;
+}
+
 #quokka #quokka_dialog {
   padding: 0;
 }
