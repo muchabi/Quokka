@@ -15,7 +15,16 @@
     script.type='text/javascript';
     script.src='http://localhost:3030/quokka';
     document.body.appendChild(script);
-  })();">TechConnect Bookmarklet</a>
+  })();">Development Bookmarklet</a>
+</div>
+
+<div>
+  <a href="javascript:(function() {
+    var script=document.createElement('script');
+    script.type='text/javascript';
+    script.src='<%= request.base_url %>/quokka';
+    document.body.appendChild(script);
+  })();">TechConnect Bookmarklet (pointing at the current site)</a>
 </div>
 
 </body>
