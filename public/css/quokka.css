@@ -40,24 +40,11 @@ font-size: 9pt;
   width: 100%;
 }
 
-#div-prev-soln-categories > div {
-  float: left;
-  width: 46%;
-  height: 46%;
-  margin: 2%;
-  text-align: center;
-}
-
-#div-prev-soln-categories > div > button {
-  width: 100%;
-  height: 80%;
-}
-
-#body-prev-soln .div-questions a{
+div#div-email-questions.notes-questions a{
   display: block;
   margin: 20px 0;
 }
 
-.prev-soln-answer li {
+.notes-answer li {
   margin: 20px 0;
 }
