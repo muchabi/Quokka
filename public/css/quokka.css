@@ -37,3 +37,12 @@ height: 90px;
 text-align: center;
 font-size: 9pt;
 }
+
+div#div-email-questions.notes-questions a{
+  display: block;
+  margin: 20px 0;
+}
+
+.notes-answer li {
+  margin: 20px 0;
+}
