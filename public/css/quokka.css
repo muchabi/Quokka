@@ -3,6 +3,39 @@ html {
   font-family: 'PT Sans', Helvetica, sans-serif
 }
 
+#quokka body{
+	font-family: 'PT Sans';
+	text-align: center;
+}
+
+#quokka .menu{
+	width: 260px; 
+	margin: 0 auto;
+	border: 1px solid black;
+	padding: 10px;
+}
+
+#quokka .menu button{
+	font-size: 14pt;
+}
+
+#quokka .mainmenu button{
+	width: 150px;
+}
+
+#quokka .contacts button{
+	width: 90px;
+height: 90px;
+text-align: center;
+}
+
+#quokka .notesmenu button{
+	width: 90px;
+height: 90px;
+text-align: center;
+font-size: 9pt;
+}
+
 #quokka_content {
   width: 100%;
 }
