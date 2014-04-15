@@ -1,9 +1,8 @@
-/* Namespace everything so we don't affect webpage */
-
-#quokka p {
-  color: green;
-  font-size: 20px;
+html {
+  width: 100%;
+  font-family: 'PT Sans', Helvetica, sans-serif
 }
+<<<<<<< HEAD
 #quokka body{
 	font-family: 'PT Sans';
 	text-align: center;
@@ -35,3 +34,9 @@ height: 90px;
 text-align: center;
 font-size: 9pt;
 }
+=======
+
+#quokka_content {
+  width: 100%;
+}
+>>>>>>> e11fd2760235245efce11ad65b1425cc3ded2e57

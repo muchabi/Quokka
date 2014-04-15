@@ -1,0 +1,66 @@
+(function() {
+  if (typeof quokka === 'undefined') {
+    window.quokka = {};
+
+    // Load our version of jQuery and jQuery UI
+    var script = document.createElement('script');
+    script.src = '<%= request.base_url %>/js/jquery-1.10.2.js';
+    script.onload = load_jqueryui;
+    document.body.appendChild(script);
+  } else {
+    show_quokka();
+  }
+  
+
+  function load_jqueryui() {
+    script = document.createElement('script');
+    script.src = '<%= request.base_url %>/js/jquery-ui-1.10.4.custom.min.js';
+    script.onload = restore_jquery;
+    document.body.appendChild(script);
+  }
+
+  function restore_jquery() {
+    // Restore old jQuery
+    quokka.jq = jQuery.noConflict();
+
+    // If jQuery wasn't loaded, we should load it.
+    if (!(window.jQuery)) {
+      window.jQuery = quokka.jq;
+      $ = window.jQuery;
+    }
+
+    init_quokka();
+  }
+
+  function init_quokka() {
+    // Load jQuery UI styles (make sure the CSS file is namespaced!)
+    var styles = document.createElement('link');
+    styles.rel = 'stylesheet';
+    styles.type = 'text/css';
+    styles.href = '<%= request.base_url %>/css/jquery-ui-1.10.4.custom.css';
+    document.body.appendChild(styles);
+
+    // Load styles for the dialog
+    styles = document.createElement('link');
+    styles.rel = 'stylesheet';
+    styles.type = 'text/css';
+    styles.href = '<%= request.base_url %>/css/dialog.css?body=1';
+    document.body.appendChild(styles);
+
+    // Add Dialog HTML to the page
+    quokka.jq("body").append(quokka.jq.parseHTML('<div id="quokka"></div>'));
+    quokka.jq("#quokka").append('<%= compress_erb(erb :dialog) %>');
+    quokka.jq("#quokka_dialog").dialog({
+      appendTo: quokka.jq("#quokka"),
+      autoOpen: false,
+    });
+
+    show_quokka();
+  }
+
+  // Show the dialog, repositioning it at the top-right
+  function show_quokka() {
+    quokka.jq("#quokka_dialog").dialog("open");
+    quokka.jq("#quokka_dialog").dialog("option", "position", { my: "right top", at: "right top", of: "body" });
+  }
+})();
