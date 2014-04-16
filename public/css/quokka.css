@@ -99,12 +99,16 @@ video{
   text-align: center;
 }
 
-.menu button{
-	font-size: 14pt;
+#quokka .menu button.ui-widget{
+	font-size: 10pt;
 }
 
 .mainmenu button{
 	width: 150px;
+}
+
+h1{
+  font-size: 1.4em;
 }
 
 .contacts button{
