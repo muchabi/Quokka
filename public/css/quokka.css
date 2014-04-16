@@ -13,6 +13,79 @@ body{
   width: 100%;
 }
 
+
+.layout_wrapper {
+	top: 0px;
+	bottom: 0px;
+}
+
+.layout_stack {
+	display: block;
+	background-color: green;
+	padding: 1px solid #fbfbfc;
+}
+
+#call_headline{
+	height: 10%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+.call_headline_connected{
+	background-color: #dff0d8;
+	color: #468847;
+}
+
+.call_headline_calling{
+	background-color: #fcf8e3;
+	color: #c09853;
+}
+
+#call_screen{
+	height: 50%;
+	background-color: black;
+	background-image: url('http://jay.mobile9.com/download/media/41/someonecal_4nlkcoc7.gif');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#call_setting{
+	height: 30%;
+	background-color: rgb(236, 236, 240);
+	border: 1px solid #e1e1e8;
+}
+
+#call_bottom{
+	height: 10%;
+	text-align: center;
+	vertical-align: middle;
+	background-image: linear-gradient(rgb(238, 95, 91), rgb(189, 54, 47));
+	line-height: 20px;
+	color: white;
+	position: relative;
+	cursor: pointer;
+}
+
+.toggle_button{
+	cursor: pointer;
+	content:url('/css/images/off_icon.png');
+	vertical-align: middle;
+}
+
+.toggle_button_on{
+	content:url('/css/images/on_icon.png');
+}
+
+video{
+	text-align: center;
+}
+
+.lbl_setting{
+	display: inline-block;
+	width: 100px;
+}
 .menu{
 	margin: 0;
 }
