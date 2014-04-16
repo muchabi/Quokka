@@ -12,6 +12,10 @@ get '/download' do
   erb :download
 end
 
+get '/download/:filename' do
+  send_file "./files/#{filename}", :filename => filename, :type => 'Application/octet-stream'
+end
+
 get '/quokka' do
   content_type :js
   erb :"bookmarklet.js"
