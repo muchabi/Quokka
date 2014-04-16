@@ -13,7 +13,7 @@ get '/download' do
 end
 
 get '/download/:filename' do
-  send_file "./files/#{filename}", :filename => filename, :type => 'Application/octet-stream'
+  send_file "./files/#{params[:filename]}", :filename => params[:filename], :type => 'Application/octet-stream'
 end
 
 get '/quokka' do
