@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 html {
   width: 100%;
   font-family: 'PT Sans', Helvetica, sans-serif
@@ -5,7 +9,11 @@ html {
 
 body{
   margin: 0;
+  padding: 10px;
 	font-family: 'PT Sans';
+}
+
+h1 {
 	text-align: center;
 }
 
