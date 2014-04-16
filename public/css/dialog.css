@@ -35,3 +35,7 @@
 	padding: 1px;
 	height: 28px;
 }
+
+#quokka .ui-dialog-titlebar-close ui-button-text{
+	margin: 0 !important;
+}
