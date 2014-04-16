@@ -87,12 +87,12 @@ h1 {
 
 .toggle_button{
 	cursor: pointer;
-	content:url('/css/images/off_icon.png');
+	content:url('/images/off_icon.png');
 	vertical-align: middle;
 }
 
 .toggle_button_on{
-	content:url('/css/images/on_icon.png');
+	content:url('/images/on_icon.png');
 }
 
 video{
