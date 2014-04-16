@@ -7,9 +7,12 @@
   Content styling goes into quokka.css, not here
 */
 
+#quokka {
+  position: fixed;
+}
+
 #quokka .ui-front {
   z-index: 2000000000;
-  position: fixed !important;
 }
 
 #quokka #quokka_dialog {

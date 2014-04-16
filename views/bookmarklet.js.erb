@@ -67,7 +67,8 @@
   function show_quokka() {
     quokka.jq("#quokka_dialog").dialog("open");
     quokka.jq("#quokka_dialog").dialog("option", "position", { my: "right top", at: "right top", of: "body" });
-    resize_bookmarklet();
+    //quokka.jq("#quokka .ui-front").css("position", "fixed");
+    //resize_bookmarklet();
   }
 
   function resize_bookmarklet() {
