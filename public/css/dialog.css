@@ -23,7 +23,8 @@
 }
 
 .ui-dialog .ui-dialog-title{
-	margin: .1em 1.1em !important;
+	margin: 5px 20px !important;
+  font-size: 14pt;
 }
 
 #quokka .ui-dialog-titlebar-home{
