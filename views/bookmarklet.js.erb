@@ -54,7 +54,8 @@
       appendTo: quokka.jq("#quokka"),
       autoOpen: false,
       height: "auto",
-      width: "auto",
+      resizable: false,
+      width: "300px",
     });
 
     show_quokka();
@@ -64,6 +65,10 @@
   function show_quokka() {
     quokka.jq("#quokka_dialog").dialog("open");
     quokka.jq("#quokka_dialog").dialog("option", "position", { my: "right top", at: "right top", of: "body" });
+    resize_bookmarklet();
+  }
+
+  function resize_bookmarklet() {
     autoResize("quokka_frame");
   }
 
@@ -72,11 +77,11 @@
     var newwidth;
 
     if(document.getElementById){
-      newheight=document.getElementById(id).contentWindow.document.body.scrollHeight;
-      newwidth=document.getElementById(id).contentWindow.document.body.scrollWidth;
+      newheight=document.getElementById(id).contentWindow.document.body.scrollHeight; 
+      console.log(newheight, newwidth);
     }
 
     document.getElementById(id).height= (newheight) + "px";
-    document.getElementById(id).width= (newwidth) + "px";
+    //document.getElementById(id).width= (newwidth) + "px";
   }
 })();

@@ -12,6 +12,7 @@
 }
 
 #quokka #quokka_dialog {
+  min-width: 200px;
   padding: 0;
 }
 
