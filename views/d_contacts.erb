@@ -1,12 +1,21 @@
 <div class='menu contacts'>
   <h1>Who do you want to ask for help?</h1>
-  <button><img width=50 src='/css/images/woman.png'/><br/>
-  Jane</button> 
-  <button><img height=61 src='/css/images/bill.jpg'/><br/>
-  Bill</button>
+  <button>
+    <img width=50 src='/css/images/woman.png'/><br/>Jane
+  </button> 
+  <button>
+    <img height=61 src='/css/images/bill.jpg'/><br/>Bill
+  </button>
   <br/>
   <br/>
-  <button><img width=50 src='/css/images/man.png'/>
-  Helix</button>
-  <div>
-</body>
+  <button><img width=50 src='/css/images/man.png'/>Helix
+  </button>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    $('button').click(function(e){
+      location.href="/d/call?name="+$(this).text().trim();
+    });
+  });
+</script>

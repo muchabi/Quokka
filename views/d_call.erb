@@ -1,7 +1,7 @@
 <div class"layout_wrapper">
-	<div id="call_headline" class="layout_stack">
+	<button type="flat" id="call_headline" class="layout_stack">
 		<span id="call_status">HAHA</span> to <span class="call_contact">HAHAHA</span>
-	</div>
+	</button>
 	<div id="call_screen" class="layout_stack">
 
 		<video width="100%" height="100%" style="display:none;">
@@ -28,7 +28,7 @@
 		<div>
 		</div>
 	</div>
-	<div id="call_bottom" class="layout_stack">End Call</div>
+	<button id="call_bottom" class="layout_stack">End Call</button>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -87,7 +87,7 @@
     });
 
     $("#call_bottom").click(function(e){
-    	alert('Trust me, I will close');
+    	location.href="/d/contacts";
     });
 
     var updateContact = function(name, photo){

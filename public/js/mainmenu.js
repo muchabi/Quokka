@@ -2,7 +2,7 @@ $(function(){
   $("input[type=submit], a, button").button();
 
   $("#btn-phone").on("click", function(){
-    alert("Hook this up to Tommy's code.");
+    location.href="/d/contacts";
   });
   
   $("#btn-notes").on("click", function(){

@@ -25,15 +25,23 @@ h1 {
 .layout_wrapper {
 	top: 0px;
 	bottom: 0px;
+	left: 0px;
+	right: 0px;
+  	display: flex;
+  	flex-flow: row wrap;
 }
 
 .layout_stack {
-	display: block;
 	background-color: green;
 	padding: 1px solid #fbfbfc;
+	display:block;
+	width: 100%;
+	flex: 1 100%;
+	border-style:none;
 }
 
 #call_headline{
+	top: 0px;
 	height: 10%;
 	text-align: center;
 	vertical-align: middle;
@@ -61,18 +69,19 @@ h1 {
 
 #call_setting{
 	height: 30%;
+	bottom: 30%;
 	background-color: rgb(236, 236, 240);
 	border: 1px solid #e1e1e8;
 }
 
 #call_bottom{
+	bottom: 0px;
 	height: 10%;
 	text-align: center;
 	vertical-align: middle;
 	background-image: linear-gradient(rgb(238, 95, 91), rgb(189, 54, 47));
 	line-height: 20px;
 	color: white;
-	position: relative;
 	cursor: pointer;
 }
 
