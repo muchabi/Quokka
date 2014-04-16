@@ -1,0 +1,17 @@
+{
+ "background": {"scripts": ["background.js"]},
+ "browser_action": {
+ "default_icon": "logo.png",
+ "default_title": "TechConnect"
+ },
+ "name": "TechConnect",
+ "description": "Help elderly computer users get tech support",
+ "homepage_url": "https://quokka6813.herokuapp.com",
+ "permissions": [
+     "tabs",
+     "http://*/*",
+     "https://*/*"
+ ],
+ "version": "0.1",
+ "manifest_version": 2
+}
