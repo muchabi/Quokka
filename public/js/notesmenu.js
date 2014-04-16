@@ -1,4 +1,6 @@
 $(function(){
+  $("input[type=submit], a, button").button();
+
   var categoryButtons = $("#div-notes-categories button");
   
   categoryButtons.on("click", function(){

@@ -96,6 +96,7 @@ video{
 }
 .menu{
 	margin: 0;
+  text-align: center;
 }
 
 .menu button{
@@ -113,10 +114,10 @@ text-align: center;
 }
 
 .notesmenu button{
-	width: 90px;
-height: 90px;
-text-align: center;
-font-size: 9pt;
+	width: 40%;
+  height: 120px;
+  text-align: center;
+  font-size: 9pt;
 }
 
 div#div-email-questions.notes-questions a{

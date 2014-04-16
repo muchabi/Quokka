@@ -2,11 +2,15 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="<%= request.base_url %>/css/quokka.css?body=1">
+    <link rel="stylesheet" type="text/css" href="<%= request.base_url %>/css/jquery-ui-1.10.4.custom.css?body=1">
     <script type="text/javascript" src="/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.10.4.custom.js"></script>
   </head>
   <body>
-    <div id="quokka_content">
-      <%= yield %>
+    <div id="quokka">
+      <div id="quokka_content">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html
