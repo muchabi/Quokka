@@ -9,6 +9,7 @@
 
 #quokka .ui-front {
   z-index: 2000000000;
+  position: fixed;
 }
 
 #quokka #quokka_dialog {
