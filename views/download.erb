@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>TechConnect - Download</title>
+</head>
+
+<body>
+
+<h1>Usage options</h1>
+
+<h2>Chrome Extension</h2>
+<p>This gives you the full experience that we envisioned for the elderly users who might have trouble with bookmarklets</p>
+<ol>
+  <li>Download the zipped extension: <a href="/">Not up yet</a></li>
+  <li>Unpack the extension</li>
+  <li>Go to <a href="chrome://extensions/">chrome://extensions/</a> and click "Load unpacked extension". Select the folder you unpacked the extension into</li>
+  <li>TechConnect extension is now installed (can click on its icon)</li>
+</ol>
+
+<h2>Here is a bookmarklet</h2>
+<p>You can drag it to your bookmarks bar, or right-click and bookmark the link.</p>
+<div>
+  <a href="javascript:(function() {
+    var script=document.createElement('script');
+    script.type='text/javascript';
+    script.src='<%= request.base_url %>/quokka';
+    document.body.appendChild(script);
+  })();">TechConnect Bookmarklet (Drag me to your bookmarks bar)</a>
+</div>
+<p>Now, you can click on the bookmark to launch it on any page</p>
+
+<h2>For the truly lazy</h2>
+You can just click on <a href="javascript:(function() {
+    var script=document.createElement('script');
+    script.type='text/javascript';
+    script.src='<%= request.base_url %>/quokka';
+    document.body.appendChild(script);
+  })();">this TechConnect link</a> without saving it anywhere. You don't get to see it run on top of another page this way though.
+
+</body>

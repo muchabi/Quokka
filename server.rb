@@ -8,6 +8,10 @@ get '/' do
   erb :index
 end
 
+get '/download' do
+  erb :download
+end
+
 get '/quokka' do
   content_type :js
   erb :"bookmarklet.js"
