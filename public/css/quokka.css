@@ -142,4 +142,25 @@ div#div-email-questions.notes-questions a{
   margin: 20px 0;
 }
 
+#div-offline-msg p img {
+  height: 1em;
+  width: 1em;
+}
+
+#div-offline-msg textarea {
+  width: 100%;
+  min-height: 150px;
+  font-family: "PT Sans";
+  font-size: 1em;
+}
+
+#div-offline-msg button {
+  float: right;
+  margin-top: 10px;
+}
+
+#div-offline-msg-confirm div{
+  margin-top: 10px;
+  text-align: center;
+}
 

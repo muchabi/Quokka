@@ -2,7 +2,12 @@ $(function(){
   $("input[type=submit], a, button").button();
 
   $("#btn-phone").on("click", function(){
-    location.href="/d/contacts";
+    if (Math.random() > 0.50){
+      location.href="/d/contacts";
+    }
+    else{
+      location.href="/d/offline_msg";
+    }
   });
   
   $("#btn-notes").on("click", function(){
