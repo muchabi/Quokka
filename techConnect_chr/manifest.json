@@ -4,6 +4,9 @@
  "default_icon": "logo.png",
  "default_title": "TechConnect"
  },
+ "icons": {"16": "logo.png",
+           "48": "logo.png",
+          "128": "logo.png" },
  "name": "TechConnect",
  "description": "Help elderly computer users get tech support",
  "homepage_url": "https://quokka6813.herokuapp.com",
