@@ -2,7 +2,7 @@ $(function(){
   $("input[type=submit], a, button").button();
 
   $("#btn-phone").on("click", function(){
-    if (Math.random() > 0.50){
+    if (Math.random() > 0.33){
       location.href="/d/contacts";
     }
     else{
