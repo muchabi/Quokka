@@ -1,19 +1,20 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'sass'
 
 set :port, 3030
 set :protection, :except => :frame_options
 
 get '/' do
-  erb :index
+  erb :download
 end
 
 get '/download' do
   erb :download
 end
 
-get '/download/:filename' do
-  send_file "./files/#{params[:filename]}", :filename => params[:filename], :type => 'Application/octet-stream'
+get '/dev' do
+  erb :dev
 end
 
 get '/quokka' do
@@ -23,6 +24,10 @@ end
 
 get '/d/:name' do
   erb :"d_#{params[:name]}", layout: :dialog_layout
+end
+
+get '/download/:filename' do
+  send_file "./files/#{params[:filename]}", :filename => params[:filename], :type => 'Application/octet-stream'
 end
 
 helpers do

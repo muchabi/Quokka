@@ -112,7 +112,7 @@ video{
 	font-size: 10pt;
 }
 
-.mainmenu button{
+.main_menu button{
 	width: 150px;
 }
 
@@ -122,11 +122,15 @@ h1{
 
 .contacts button{
 	width: 90px;
-height: 90px;
-text-align: center;
+  height: 90px;
+  text-align: center;
 }
 
-.notesmenu button{
+.contacts button img {
+  width: 80%;
+}
+
+.notes_menu button{
 	width: 40%;
   height: 120px;
   text-align: center;

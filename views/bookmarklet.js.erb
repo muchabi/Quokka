@@ -59,7 +59,7 @@
     });
 	
 	quokka.jq('.ui-dialog-titlebar').prepend('<button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-home"><img width=25 src="'+'<%= request.base_url %>'+'/images/home_icon.png"/></button>');
-	quokka.jq('#quokka .ui-dialog-titlebar-home').click(function(){ quokka.jq('#quokka iframe').attr('src', '<%= request.base_url %>'+'/d/mainmenu');});
+	quokka.jq('#quokka .ui-dialog-titlebar-home').click(function(){ quokka.jq('#quokka iframe').attr('src', '<%= request.base_url %>'+'/d/main_menu');});
     show_quokka();
   }
 
