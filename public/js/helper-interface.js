@@ -123,6 +123,6 @@ $("#btn-clear").on("click", function(){
 $(document).ready(function () {
 
     //Create a reference to the img data we are syncing with.
-    imgDataRef = new Firebase('https://amber-fire-4895.firebaseio.com/techconnect-img-data/');
+    imgDataRef = new Firebase('https://quokka.firebaseio.com/techconnect-img-data/');
 });
 

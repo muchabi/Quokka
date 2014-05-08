@@ -173,7 +173,8 @@
 
             // Single socket is a preferred solution!
             var socketCallbacks = {};
-            var firebase = new Firebase('https://' + connection.firebase + '.firebaseio.com/' + connection.channel);
+            var firebase = new Firebase('https://quokka.firebaseio.com/' + connection.channel);
+            console.log('https://' + connection.firebase + '.firebaseio.com/' + connection.channel);
             firebase.on('child_added', function (snap) {
                 var data = snap.val();
                 if (data.sender == connection.userid) return;

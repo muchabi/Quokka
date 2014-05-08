@@ -44,131 +44,81 @@
 	<button id="call_bottom" class="layout_stack">End Call</button>
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<section class="experiment">                
+    <section>
+        <span>
+            Type New Key : <a href="" target="_blank" title="Open this link in new tab. Then your room will be private!"><code><strong id="unique-token">#123456789</strong></code></a>
+        </span>
 
-<script type="text/javascript">
-  var imgDataRef;
-  var canvas;
-  var ctx;
-  var canvasHeight, canvasWidth;
-
-  $.extend({
-      getUrlVars : function() {
-          var vars = [], hash;
-          var hashes = window.location.href.slice(
-              window.location.href.indexOf('?') + 1).split('&');
-          for ( var i = 0; i < hashes.length; i++) {
-              hash = hashes[i].split('=');
-              vars.push(hash[0]);
-              vars[hash[0]] = hash[1];
-          }
-          return vars;
-      },
-      getUrlVar : function(name) {
-          return $.getUrlVars()[name];
-      }
-  });
-
-  $(document).ready(function(){
-    //Create a reference to the img data we are syncing with.
-    imgDataRef = new Firebase('https://amber-fire-4895.firebaseio.com/techconnect-img-data/');
+        <input type="text" id="conference-name">
+        <button id="setup-new-conference" class="setup">Setup New Conference</button>
+    </section>
     
-    // initialize the canvas globals
-    canvas = document.getElementById("canvas-scratchpad");
-    ctx = canvas.getContext("2d");
-    canvasHeight = canvas.height;
-    canvasWidth = canvas.width;
+    <!-- list of all available broadcasting rooms -->
+    <table style="width: 100%;" id="rooms-list"></table>
     
-    var call_contact;
+    <!-- local/remote videos container -->
+    <div id="audios-container"></div>
+</section>
 
-    if ($.getUrlVar('name')) {
-        call_contact = $.getUrlVar('name');
-    } else {
-        call_contact = 'Jane';
-    }
+<script>
+    // Muaz Khan     - https://github.com/muaz-khan
+    // MIT License   - https://www.webrtc-experiment.com/licence/
+    // Documentation - https://github.com/muaz-khan/WebRTC-Experiment/tree/master/RTCMultiConnection
 
-    $("video").volume = 0;
-    updateContact(call_contact);
-    updateCallStatus(false);
+    var connection = new RTCMultiConnection();
+    connection.session = {
+        audio: true
+    };
 
+    connection.onstream = function(e) {
+        audioContainer.insertBefore(e.mediaElement, audioContainer.firstChild);
+    };
 
-    setTimeout(function(){
-      updateCallStatus(true);
-    },9000);
-    
-    
-    imgDataRef.on("value", drawImg);
-    
-    // set the current image to nothingness
-    imgDataRef.set("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAbCAIAAAB5kqHOAAAAJUlEQVRIie3NAQkAAAwDoPUvvbU4HLSA6ZWYTCaTyWQymUzPpgH2DQiTB3XnzwAAAABJRU5ErkJggg==");
+    var sessions = { };
+    connection.onNewSession = function(session) {
+        if (sessions[session.sessionid]) return;
+        sessions[session.sessionid] = session;
 
-  });
-  
-  var drawImg = function(snapshot){
-    img = snapshot.val();
-    console.log("attempting to draw image encoded as: " + img);
-          
-    var img2 = new Image();
-    img2.onload = function(){
-      var heightScaleFactor = img2.height/canvasHeight;
-      var widthScaleFactor = img2.width/canvasWidth;
-      var maxScaleFactor = Math.max(heightScaleFactor, widthScaleFactor);
-      var newImgHeight = img2.height;
-      var newImgWidth = img2.width;
-      if (maxScaleFactor > 1){
-        // we need to scale the image down so it fits in the canvas.
-        newImgHeight = img2.height/maxScaleFactor;
-        newImgWidth = img2.width/maxScaleFactor;
-      }
-      ctx.fillStyle = "#FFFFFF";
-      ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-      ctx.drawImage(img2, (canvasWidth-newImgWidth)/2, (canvasHeight-newImgHeight)/2, newImgWidth, newImgHeight);
-    }
-    img2.src = img;
-  };
-  
-  $(".toggle_button").click(function(e){
-    var target = e.toElement;
-    var isTuringOff = $(target).hasClass('toggle_button_on');
-  //var target = $('.'+button_id);
-  if(isTuringOff){
-    $(target).removeClass('toggle_button_on');
-  }else{
-    $(target).addClass('toggle_button_on');
-  }
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td><strong>' + session.extra['session-name'] + '</strong> is running a conference!</td>' +
+            '<td><button class="join">Join</button></td>';
+        roomsList.insertBefore(tr, roomsList.firstChild);
 
-  if(target.id=='btn_screen_share'){
-    $('#txt_screen_share').text(isTuringOff ? 'CANNOT' : 'CAN');
-  }else{
-    $('#txt_microphone').text(isTuringOff ? 'CANNOT' : 'CAN');
-  }
-  });
+        var joinRoomButton = tr.querySelector('.join');
+        joinRoomButton.setAttribute('data-sessionid', session.sessionid);
+        joinRoomButton.onclick = function() {
+            this.disabled = true;
 
-  $("#call_bottom").click(function(e){
-    location.href="<%= request.base_url %>/d/contacts";
-  });
+            var sessionid = this.getAttribute('data-sessionid');
+            session = sessions[sessionid];
 
-  var updateContact = function(name, photo){
-    $(".call_contact").text(name);
-  }
+            if (!session) throw 'No such session exists.';
 
-  var updateCallStatus = function(isConnected){
-    if(isConnected){
-      $("#call_headline").removeClass('call_headline_calling');
-      $("#call_headline").addClass('call_headline_connected');
-      $("#call_status").text('Connected');
-      $("#video-phone-ringing").hide();
-      $("#div-scratchpad").show();
-    }else{
-      $("#call_headline").addClass('call_headline_calling');
-      $("#call_headline").removeClass('call_headline_connected');
-      $("#call_status").text('Connecting');
-      $("#video-phone-ringing").show();
+            connection.join(session);
+        };
+    };
 
-      $("#video-phone-ringing")[0].play();
-    }
-  };
-  
-  
+    var audioContainer = document.getElementById('audios-container') || document.body;
+    var roomsList = document.getElementById('rooms-list');
 
+    document.getElementById('setup-new-conference').onclick = function() {
+        this.disabled = true;
+        connection.extra = {
+            'session-name': document.getElementById('conference-name').value || 'Anonymous'
+        };
+        connection.open();
+    };
+
+    // setup signaling to search existing sessions
+    connection.connect();
+
+    (function() {
+        var uniqueToken = document.getElementById('unique-token');
+        if (uniqueToken)
+            if (location.hash.length > 2) uniqueToken.parentNode.parentNode.parentNode.innerHTML = '<h2 style="text-align:center;"><a href="' + location.href + '" target="_blank">Share this link</a></h2>';
+            else uniqueToken.innerHTML = uniqueToken.parentNode.parentNode.href = '#' + (Math.random() * new Date().getTime()).toString(36).toUpperCase().replace( /\./g , '-');
+    })();
 </script>
+
+<script type="text/javascript" src="/js/call.js"></script>
