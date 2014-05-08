@@ -112,7 +112,7 @@ video{
 	font-size: 10pt;
 }
 
-#quokka #main_menu button {
+#main_menu button {
 	width: 150px;
 }
 
@@ -120,13 +120,14 @@ h1{
   font-size: 1.4em;
 }
 
-.contacts button{
+#contacts button{
 	width: 90px;
   height: 90px;
   text-align: center;
 }
 
-.contacts button img {
+#contacts button img {
+  height: 60%;
   width: 80%;
 }
 
