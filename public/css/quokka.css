@@ -169,3 +169,7 @@ div#div-email-questions.notes-questions a{
   text-align: center;
 }
 
+#audio-elements {
+  height: 0;
+  overflow: hidden;
+}
