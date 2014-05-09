@@ -154,6 +154,10 @@ div#div-email-questions.notes-questions a{
   margin: 20px 0;
 }
 
+div#div-email-questions.notes-questions a:visited {
+  color: blue;
+}
+
 .notes-answer li {
   margin: 20px 0;
 }
