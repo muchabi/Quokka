@@ -33,6 +33,7 @@ get '/download/:filename' do
 end
 
 get '/helper' do
+  status_bool = true
   erb :helper
 end
 
