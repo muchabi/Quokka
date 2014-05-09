@@ -31,6 +31,16 @@
   font-size: 14pt;
 }
 
+#quokka .ui-dialog{
+	border-radius: 0 !important;
+}
+
+
+#quokka .ui-dialog-titlebar{
+	border-radius: 0 !important;
+	background: #9de6e7;
+}
+
 #quokka .ui-dialog-titlebar-home{
 	position: absolute;
 	left: .3em;
@@ -41,6 +51,18 @@
 	height: 28px;
 }
 
+#quokka .ui-dialog-titlebar-home, #quokka .ui-dialog-titlebar-close{
+	background: white !important;
+}
+
+#quokka .ui-dialog-titlebar-home:hover{
+	border: 2px solid black;
+}
+
 #quokka .ui-dialog-titlebar-close ui-button-text{
 	margin: 0 !important;
+}
+
+#quokka .ui-dialog-titlebar-close:hover{
+	border: 2px solid black;
 }

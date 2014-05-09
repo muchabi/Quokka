@@ -2,6 +2,8 @@
 	box-sizing: border-box;
 }
 
+
+
 html {
   font-size: 100%;
   width: 100%;
@@ -20,6 +22,17 @@ h1 {
 
 #quokka_content {
   width: 100%;
+}
+
+#btn-phone, #btn-notes{
+	width: 182px;
+	height: 146px;
+	margin-bottom: 10px;
+}
+
+#btn-email, #btn-news, #btn-music-video, #btn-games{
+	width: 90px;
+	height: 90px;
 }
 
 
@@ -112,9 +125,7 @@ video{
 	font-size: 10pt;
 }
 
-#main_menu button {
-	width: 150px;
-}
+
 
 h1{
   font-size: 1.4em;
