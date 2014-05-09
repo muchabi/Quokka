@@ -30,6 +30,10 @@ get '/download/:filename' do
   send_file "./files/#{params[:filename]}", :filename => params[:filename], :type => 'Application/octet-stream'
 end
 
+get '/h/audio' do
+  erb :"h_audio"
+end
+
 helpers do
   def compress_erb(raw)
     return raw.lines.map { |line|

@@ -1,49 +1,3 @@
-<div class"layout_wrapper">
-	<button type="flat" id="call_headline" class="layout_stack">
-		<span id="call_status">HAHA</span> to <span class="call_contact">HAHAHA</span>
-	</button>
-	<div id="call_screen" class="layout_stack">
-
-		<video id="video-phone-ringing" width="100%" height="100%" style="display:none;">
-		  <source src="<%= request.base_url %>/videos/phone_ringing.ogg" type="video/ogg"/>
-		  <object data="<%= request.base_url %>/videos/phone_ringing.ogg" width="100%" height="100%">
-		    <embed width="100%" height="100%" src="movie.swf">
-		  </object>
-		</video>
-
-		<video id="video-canned-call" width="100%" height="100%" style="display:none;">
-		  <source src="<%= request.base_url %>/videos/canned_call2.ogg" type="video/ogg"/>
-		  <object data="<%= request.base_url %>/videos/canned_call2.ogg" width="100%" height="100%">
-		    <embed width="100%" height="100%" src="movie.swf">
-		  </object>
-		</video>
-    
-    <div id="div-scratchpad" style="display:none;">
-      <canvas style="border:1px solid grey;" id="canvas-scratchpad" width="276" height="188">
-      </canvas>
-    </div>
-
-	</div>
-	<div id="call_setting" class="layout_stack">
-		<div>
-			<span class="lbl_setting">Screen share</span>
-            <img id="btn_screen_share" class="toggle_button toggle_button_on" /><br />
-			<span class="screen_share_tips_wrapper">
-				<span class="call_contact"></span> <span id="txt_screen_share">CAN</span> see your screen
-			</span>
-			<br />
-			<span class="lbl_setting">Microphone</span>
-            <img id="btn_microphone" class="toggle_button toggle_button_on" /><br />
-			<span class="screen_share_tips_wrapper">
-				<span class="call_contact"></span> <span id="txt_microphone">CAN</span> hear your voice
-			</span>
-		</div>
-		<div>
-		</div>
-	</div>
-	<button id="call_bottom" class="layout_stack">End Call</button>
-</div>
-
 <section id="audio-elements">                
     <section>
         <span>
@@ -107,7 +61,7 @@
     document.getElementById('setup-new-conference').onclick = function() {
         this.disabled = true;
         connection.extra = {
-            'session-name': document.getElementById('conference-name').value || 'QuokkaHelpee'
+            'session-name': document.getElementById('conference-name').value || 'Anonymous'
         };
         connection.open();
     };
@@ -119,9 +73,6 @@
         var uniqueToken = document.getElementById('unique-token');
         if (uniqueToken)
             if (location.hash.length > 2) uniqueToken.parentNode.parentNode.parentNode.innerHTML = '<h2 style="text-align:center;"><a href="' + location.href + '" target="_blank">Share this link</a></h2>';
-            else uniqueToken.innerHTML = uniqueToken.parentNode.parentNode.href = '#' + (Math.random() * new Date().getTime()).toString(36).toUpperCase().replace( /\./g , '-');
-        //$('#setup-new-conference').click();
+            else uniqueToken.innerHTML = uniqueToken.parentNode.parentNode.href = '&room=' + (Math.random() * new Date().getTime()).toString(36).toUpperCase().replace( /\./g , '-');
     })();
 </script>
-
-<script type="text/javascript" src="/js/call.js"></script>
