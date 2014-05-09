@@ -5,6 +5,8 @@ require 'sass'
 set :port, 3030
 set :protection, :except => :frame_options
 
+status_bool = true
+
 get '/' do
   erb :download
 end
@@ -23,16 +25,33 @@ get '/quokka' do
 end
 
 get '/d/:name' do
-  erb :"d_#{params[:name]}", layout: :dialog_layout
+  erb :"d_#{params[:name]}", layout: :dialog_layout, :locals => {:status_bool => status_bool}
 end
 
 get '/download/:filename' do
   send_file "./files/#{params[:filename]}", :filename => params[:filename], :type => 'Application/octet-stream'
 end
 
-get '/h/audio' do
-  erb :"h_audio"
+get '/helper' do
+  erb :helper
 end
+
+get '/h/status' do
+  return status_bool.to_s
+end
+
+get '/h/on' do
+  status_bool = true
+  puts status_bool
+  redirect '/h/status'
+end
+
+get '/h/off' do
+  status_bool = false
+  puts status_bool
+  redirect '/h/status'
+end
+
 
 helpers do
   def compress_erb(raw)

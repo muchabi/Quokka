@@ -10,4 +10,22 @@
     </button>
 <div>
 
-<script type="text/javascript" src="/js/main_menu.js"></script>
+<script>
+  $(function(){
+    $("input[type=submit], a, button").button();
+
+    $("#btn-phone").on("click", function(){
+      <% puts "Helper status: #{status_bool}" %>
+      <% if (status_bool) %>
+        location.href="/d/contacts";
+      <% else %>
+        location.href="/d/offline_msg";
+      <% end %>
+    });
+    
+    $("#btn-notes").on("click", function(){
+      location.href="/d/notes_menu";
+    });
+    
+  });
+</script>
